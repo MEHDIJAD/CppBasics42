@@ -1,0 +1,7 @@
+std::cout << "\e[31mRed text\e[0m\n";      // Red
+    std::cout << "\e[32mGreen text\e[0m\n";    // Green
+    std::cout << "\e[33mYellow text\e[0m\n";   // Yellow
+    std::cout << "\e[34mBlue text\e[0m\n";     // Blue
+    std::cout << "\e[35mMagenta text\e[0m\n";  // Magenta
+    std::cout << "\e[36mCyan text\e[0m\n";     // Cyan
+    std::cout << "\e[0mNormal text\n";           // Reset color

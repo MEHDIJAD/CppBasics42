@@ -11,5 +11,6 @@ class PhoneBook
         PhoneBook();
         void AddContact();
         void DisplayContacts();
-        // void OneContact(unsigned int index);
+        void OneContact(int index);
+        int getNumContact() const;
 };

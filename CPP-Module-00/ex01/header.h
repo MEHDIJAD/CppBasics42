@@ -6,6 +6,9 @@
 #include <stdexcept>
 #include <limits>
 #include <iomanip>
+#include <cstdlib>  // for atoi
+#include <sstream>
+#include <cctype>
 
 #include "Contact.hpp"
 #include "PhoneBook.hpp"

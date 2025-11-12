@@ -3,13 +3,18 @@
 #include <cctype>
 
 /* 1. Default Constructor */
-Contact::Contact(){
+Contact::Contact() : _FirstName(""), _LastName(""), _Nickname("")
+    , _PhoneNumber(""), _DarkestSecret("") {
 
 }
 
+/* 1.1 Parameterized Constructor */
+    // we do not have this becouse we input from the user 
+
 /* 2. Copy Constructor */
 Contact::Contact(const Contact& other) {
-    *this = other;
+    *this = other; // we want to cpy  Construct from other Object
+    // so the *this Operster will take all and give it to other
 }
 
 /* 3. Copy Assignment Operator */
@@ -28,7 +33,6 @@ Contact& Contact::operator=(const Contact& other) {
 Contact::~Contact() {
     // This can be empty
 }
-
 
 bool Contact::SetFirstName(std::string FirstName)
 {

@@ -1,39 +1,39 @@
 #include "PhoneBook.hpp"
-#include <iostream> 
+
 #include <iomanip>
+#include <iostream>
 #include <sstream>
 
 /* 1. Default Constructor */
-PhoneBook::PhoneBook() : _NumContacts(0), _nextIndex(0){
+PhoneBook::PhoneBook() : _NumContacts(0), _nextIndex(0)
+{
     /* Empty */
 }
 
 /* 2. Copy Constructor */
-PhoneBook::PhoneBook(const PhoneBook& other) {
+PhoneBook::PhoneBook(const PhoneBook &other)
+{
     *this = other;
 }
 
 /* 3. Copy Assignment Operator */
-PhoneBook& PhoneBook::operator=(const PhoneBook& other) {
+PhoneBook &PhoneBook::operator=(const PhoneBook &other)
+{
     if (this != &other)
     {
         this->_NumContacts = other._NumContacts;
         this->_nextIndex = other._nextIndex;
 
-        for (int i = 0; i < 8; i++) {
+        for (int i = 0; i < 8; i++)
+        {
             this->_Contacts[i] = other._Contacts[i];
         }
     }
     return *this;
 }
 
-/* 4. Destructor */
-PhoneBook::~PhoneBook() {
 
-}
-
-
-void PhoneBook::AddContact(/*Contact &contacts*/)
+void PhoneBook::AddContact()
 {
     Contact newContact;
     std::string Input;
@@ -46,7 +46,7 @@ void PhoneBook::AddContact(/*Contact &contacts*/)
         }
         if (newContact.SetFirstName(Input)){
             break;
-        }   
+        }
     }
 
     while (true)
@@ -69,7 +69,6 @@ void PhoneBook::AddContact(/*Contact &contacts*/)
         if (newContact.SetNickname(Input)){
             break;
         }
-
     }
     while (true)
     {
@@ -85,18 +84,17 @@ void PhoneBook::AddContact(/*Contact &contacts*/)
     while (true)
     {
         std::cout << "\e[33mWhat is your Darkest Secret: \e[0m";
-        if (!std::getline(std::cin >> std::ws, Input))
-        {
+        if (!std::getline(std::cin >> std::ws, Input)){
             return;
         }
         if (newContact.SetDarkestSecret(Input)){
             break;
         }
-
     }
     _Contacts[_nextIndex] = newContact;
 
-    if (_NumContacts < 8){
+    if (_NumContacts < 8)
+    {
         _NumContacts++;
     }
     _nextIndex = (_nextIndex + 1) % 8;
@@ -104,8 +102,7 @@ void PhoneBook::AddContact(/*Contact &contacts*/)
 
 std::string truncate_string(const std::string &str, size_t width)
 {
-    if (str.length() > width)
-    {
+    if (str.length() > width){
         return str.substr(0, width - 1) + ".";
     }
     return str;
@@ -145,8 +142,7 @@ void PhoneBook::DisplayContacts()
     std::cout << "--------------------------------------------" << std::endl;
 }
 
-int PhoneBook::getNumContact() const
-{
+int PhoneBook::NumContact() const{
     return (_NumContacts);
 }
 
@@ -176,4 +172,8 @@ void PhoneBook::OneContact(int index)
         std::cout << "\e[31mError: The index you entered is out of range.\e[0m"
                   << std::endl;
     }
+}
+
+/* 4. Destructor */
+PhoneBook::~PhoneBook() {
 }

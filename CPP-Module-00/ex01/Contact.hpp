@@ -22,21 +22,21 @@ class Contact
         /* 3. Copy Assignment Operator */
         Contact& operator=(const Contact& other);
 
-        /* 4. Destructor */
-         ~Contact();
-
         bool SetFirstName(std::string FirstName);
         bool SetLastName(std::string LastName);
         bool SetNickname(std::string Nickname);
         bool SetPhoneNumber(std::string PhoneNumber);
         bool SetDarkestSecret(std::string DarkestSecret);
-
+        
         // Getters
         std::string FirstName();
         std::string LastName();
         std::string Nickname();
         std::string PhoneNumber();
         std::string DarkestSecret();
-};
+
+        /* 4. Destructor */
+         ~Contact();
+    };
 
 #endif

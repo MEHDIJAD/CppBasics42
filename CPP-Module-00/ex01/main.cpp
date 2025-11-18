@@ -12,18 +12,15 @@ int main(int ac __attribute__((unused)), char **av __attribute__((unused)))
     while (std::cout << "\e[36m🕮  \e[0m" && std::getline(std::cin, input))
     {
         size_t start = input.find_first_not_of(" \t\n\r");
-        /* this evaluat to if i go thgout the howle input nd not find
+        /* this evaluat to if i go thgout the howle input and not find
             " \t\n\r" return npos -> (npos == npos) true
         */
-        if (start == std::string::npos)
-        {
+        if (start == std::string::npos){
             continue;
         }
-        size_t end =
-            input.find_last_not_of(" \t\n\r");  // we use it to trim spaces
+        size_t end = input.find_last_not_of(" \t\n\r");  // we use it to trim spaces
         input = input.substr(start, end - start + 1);
-        if (input == "ADD")
-        {
+        if (input == "ADD"){
             PhBook.AddContact();
         }
         else if (input == "SEARCH")
@@ -59,12 +56,10 @@ int main(int ac __attribute__((unused)), char **av __attribute__((unused)))
                 }
             }
         }
-        else if (input == "EXIT")
-        {
+        else if (input == "EXIT"){
             break;
         }
-        else
-        {
+        else{
             std::cout << "\e[31m<ADD> <SEARCH> <EXIT>\e[0m" << std::endl;
         }
     }

@@ -33,7 +33,7 @@ public:
 	/*! @brief Gets the total number of deposits made across all accounts. */
 	static int	getNbDeposits( void );
 
-	/*! @brief Gets the total number of withdrawals made across all accounts. */
+	/*! @brief Gets the total numberf of withdrawals made across all accounts. */
 	static int	getNbWithdrawals( void );
 
 	/*! @brief Displays summary information for all accounts (total acc/$, dep, with).

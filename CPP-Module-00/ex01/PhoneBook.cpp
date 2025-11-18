@@ -24,7 +24,7 @@ PhoneBook &PhoneBook::operator=(const PhoneBook &other)
         this->_NumContacts = other._NumContacts;
         this->_nextIndex = other._nextIndex;
 
-        for (int i = 0; i < 8; i++)
+        for (int i = 0; i < 3; i++)
         {
             this->_Contacts[i] = other._Contacts[i];
         }
@@ -93,11 +93,11 @@ void PhoneBook::AddContact()
     }
     _Contacts[_nextIndex] = newContact;
 
-    if (_NumContacts < 8)
+    if (_NumContacts < 3)
     {
         _NumContacts++;
     }
-    _nextIndex = (_nextIndex + 1) % 8;
+    _nextIndex = (_nextIndex + 1) % 3;
 }
 
 std::string truncate_string(const std::string &str, size_t width)

@@ -30,8 +30,8 @@ Contact& Contact::operator=(const Contact& other) {
     return *this;
 }
 
-Contact::~Contact() {
-    // This can be empty
+inline bool isValid(char c){
+    return ((isalpha(c) || c == '-' || c == '_' ) && isprint(c));
 }
 
 bool Contact::SetFirstName(std::string FirstName)
@@ -40,15 +40,12 @@ bool Contact::SetFirstName(std::string FirstName)
     {
         size_t i = -1;
         while (++i < FirstName.length()) {
-        if (!isalpha(FirstName[i]) && FirstName[i] != '-' 
-            && FirstName[i] != '_' && FirstName[i] != ' '){
-            throw std::invalid_argument("\e[31mInvalid First Name\e[0m");
-            // ❗ Stop execution here and jump to catch if input is invalid
-                return (false);
+            if (!isValid(FirstName[i])){
+                throw std::invalid_argument("\e[31mInvalid First Name\e[0m");
             }
         }
-            _FirstName = FirstName;
-            return (true);
+        _FirstName = FirstName;
+        return (true);
     }
     catch (const std::invalid_argument &e)
     {
@@ -61,14 +58,14 @@ std::string Contact::FirstName() {
     return (_FirstName);
 }
 
+
 bool Contact::SetLastName(std::string LastName)
 {
     try
     {
         size_t i = -1;
         while (++i < LastName.length()) {
-        if (!isalpha(LastName[i]) && LastName[i] != '-' 
-            && LastName[i] != '_' && LastName[i] != ' '){
+        if (!isValid(LastName[i])){
             throw std::invalid_argument("\e[31mInvalid Last Name\e[0m");
             // ❗ Stop execution here and jump to catch if input is invalid
                 return (false);
@@ -117,10 +114,14 @@ std::string Contact::PhoneNumber(){
 }
 
 bool Contact::SetDarkestSecret(std::string DarkestSecret) {
-     _DarkestSecret = DarkestSecret;
-     return (true);
+    _DarkestSecret = DarkestSecret;
+    return (true);
 }
 
 std::string Contact::DarkestSecret() {
     return (_DarkestSecret);
+}
+
+Contact::~Contact() {
+    // This can be empty
 }

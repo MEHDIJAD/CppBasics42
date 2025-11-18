@@ -13,7 +13,7 @@ all: $(NAME)
 $(NAME): $(OBJ)
 	$(COMPILER) $(FLAGS) $(PLUSFLAG) $(OBJ) -o $(NAME)
 
-%.o: %.cpp
+%.o: %.cpp  Contact.hpp PhoneBook.hpp
 	$(COMPILER) $(FLAGS) $(PLUSFLAG) -c $< -o $@
 
 clean:

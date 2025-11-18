@@ -5,7 +5,7 @@ OBJ = $(SRC:.cpp=.o)
 NAME = Bank
 
 COMPILER = c++
-FLAGS = #-Wall -Wextra -Werror
+FLAGS = -Wall -Wextra -Werror
 PLUSFLAG = -std=c++98
 
 all: $(NAME)
@@ -13,7 +13,7 @@ all: $(NAME)
 $(NAME): $(OBJ)
 	$(COMPILER) $(FLAGS) $(PLUSFLAG) $(OBJ) -o $(NAME)
 
-%.o: %.cpp
+%.o: %.cpp Account.hpp
 	$(COMPILER) $(FLAGS) $(PLUSFLAG) -c $< -o $@
 
 clean:

@@ -1,8 +1,8 @@
-SRC =  main.cpp Zombie.cpp zombieHorde.cpp
+SRC =  main.cpp
 
 OBJ = $(SRC:.cpp=.o)
 
-NAME = ZombieHord
+NAME = Refrance
 
 COMPILER = c++
 FLAGS = -Wall -Wextra -Werror -g

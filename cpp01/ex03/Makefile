@@ -1,19 +1,23 @@
-SRC =  main.cpp Zombie.cpp zombieHorde.cpp
+SRC = 	main.cpp \
+		HumanA.cpp \
+		HumanB.cpp \
+		Weapon.cpp \
 
 OBJ = $(SRC:.cpp=.o)
 
-NAME = ZombieHord
+NAME = HumanAttac
 
 COMPILER = c++
 FLAGS = -Wall -Wextra -Werror -g
 PLUSFLAG = -std=c++98
+HEADERS = HumanA.hpp HumanB.hpp Weapon.hpp 
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
 	$(COMPILER) $(FLAGS) $(PLUSFLAG) $(OBJ) -o $(NAME)
 
-%.o: %.cpp  Zombie.hpp
+%.o: %.cpp $(HEADERS)
 	$(COMPILER) $(FLAGS) $(PLUSFLAG) -c $< -o $@
 
 clean:

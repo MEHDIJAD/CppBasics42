@@ -11,8 +11,13 @@ class Zombie
         std::string name;
 
     public:
-        /* Constructor */
+        /* Default Constructor */
+        Zombie( void );
+        /* Parametrize Constructor */
         Zombie(std::string name);
+
+        /* Set name*/
+        void setName(std::string name);
 
         void announce( void ); // <name>: BraiiiiiiinnnzzzZ...
 

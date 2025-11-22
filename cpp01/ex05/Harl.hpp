@@ -15,4 +15,13 @@ class harl
         void complain( std::string level );
 };
 
+typedef void (harl::*funcPtr)(void);
+
+typedef struct complain
+{
+    std::string level;
+    funcPtr action;
+}   cp;
+
+
 #endif

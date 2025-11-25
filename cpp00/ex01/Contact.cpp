@@ -9,7 +9,7 @@ Contact::Contact() : _FirstName(""), _LastName(""), _Nickname("")
 }
 
 /* 1.1 Parameterized Constructor */
-    // we do not have this becouse we input from the user 
+    // we do not have this becouse we input from the user
 
 /* 2. Copy Constructor */
 Contact::Contact(const Contact& other) {

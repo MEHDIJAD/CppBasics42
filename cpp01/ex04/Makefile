@@ -7,7 +7,7 @@ NAME = findRep
 COMPILER = c++
 FLAGS = -Wall -Wextra -Werror -g
 PLUSFLAG = -std=c++98
-HEADERS = 
+# HEADERS = 
 
 all: $(NAME)
 

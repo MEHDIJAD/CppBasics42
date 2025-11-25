@@ -2,9 +2,8 @@
 
 
 /* Default Constructor */
-Zombie::Zombie(void)
-{
-
+Zombie::Zombie(void){
+	std::cout << "Costruct a Zombie" << std::endl;
 }
 /* Paramitrize Constructor */
 Zombie::Zombie(std::string name)

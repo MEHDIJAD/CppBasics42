@@ -7,13 +7,15 @@ NAME = ZombieHord
 COMPILER = c++
 FLAGS = -Wall -Wextra -Werror -g
 PLUSFLAG = -std=c++98
+HEADERS = Zombie.hpp
+
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
 	$(COMPILER) $(FLAGS) $(PLUSFLAG) $(OBJ) -o $(NAME)
 
-%.o: %.cpp  Zombie.hpp
+%.o: %.cpp  $(HEADERS)
 	$(COMPILER) $(FLAGS) $(PLUSFLAG) -c $< -o $@
 
 clean:

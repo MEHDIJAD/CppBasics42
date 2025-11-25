@@ -20,7 +20,7 @@ int main(int ac, char **av)
 
         infile.open(filename.c_str(), std::ios::in);
         if (infile.is_open()){
-            std::cout << "File '" << filename << "' opened successfully.";
+            std::cout << "File '" << filename << "' opened successfully." << std::endl;
 
             /* Read - find - replace */
             std::string line;
@@ -30,6 +30,10 @@ int main(int ac, char **av)
                     1- replace in line
                     2- write to file.replace
                 */
+				if (instr.empty()){
+					outfile << line << std::endl;
+					continue;
+				}
                 size_t pos = 0;
                 while((pos = line.find(instr, pos)) != std::string::npos)
                 {

@@ -9,18 +9,14 @@ class Zombie
 {
     private:
         std::string name;
-
     public:
         /* Default Constructor */
         Zombie( void );
         /* Parametrize Constructor */
         Zombie(std::string name);
-
         /* Set name*/
         void setName(std::string name);
-
         void announce( void ); // <name>: BraiiiiiiinnnzzzZ...
-
         /* Destructor */
         ~Zombie(void);
 };

@@ -17,7 +17,7 @@ class Fixed
 		/* Destructor */
 		~Fixed();
 
-		int getRawBits( void );
+		int getRawBits( void ) const;
 		void setRawBits( int const raw );
 };
 

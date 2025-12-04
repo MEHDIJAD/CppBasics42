@@ -10,6 +10,9 @@ class Fixed
 	public:
 		/* Default Constructor */
 		Fixed( void );
+
+		/* Parametrize Constructor */
+		Fixed(const int decimal);
 		/* Copy Constructor */
 		Fixed(const Fixed &other);
 		/* Assignment Operator */
@@ -19,6 +22,8 @@ class Fixed
 
 		int getRawBits( void );
 		void setRawBits( int const raw );
+
+
 };
 
 

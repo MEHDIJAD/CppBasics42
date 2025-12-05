@@ -1,0 +1,18 @@
+Default constructor called
+Int constructor called
+Float constructor called
+Default constructor called
+Destructor called
+Destructor called
+0
+0.00390625
+0.00390625
+Copy constructor called
+Copy assignment operator called
+0.00390625
+Destructor called
+0.0078125
+10.1016
+10.1016
+Destructor called
+Destructor called

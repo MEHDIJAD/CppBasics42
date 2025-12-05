@@ -89,6 +89,108 @@ int Fixed::toInt( void ) const
 		// return (this->fixedPoint / 256);
 }
 
+/* Comparison operators */
+bool Fixed::operator>(const Fixed &other) const {
+	return this->fixedPoint > other.fixedPoint;
+}
+
+bool Fixed::operator<(const Fixed &other) const {
+	return this->fixedPoint < other.fixedPoint;
+}
+
+bool Fixed::operator>=(const Fixed &other) const {
+	return this->fixedPoint >= other.fixedPoint;
+}
+
+bool Fixed::operator<=(const Fixed &other) const {
+	return this->fixedPoint <= other.fixedPoint;
+}
+
+bool Fixed::operator==(const Fixed &other) const {
+	return this->fixedPoint == other.fixedPoint;
+}
+
+bool Fixed::operator!=(const Fixed &other) const {
+	return this->fixedPoint != other.fixedPoint;
+}
+
+// Arithmetic operators
+Fixed Fixed::operator+(const Fixed &other) const {
+	Fixed result;
+	result.setRawBits(this->fixedPoint + other.fixedPoint);
+	return result;
+}
+
+Fixed Fixed::operator-(const Fixed &other) const {
+	Fixed result;
+	result.setRawBits(this->fixedPoint - other.fixedPoint);
+	return result;
+}
+
+Fixed Fixed::operator*(const Fixed &other) const {
+	Fixed result;
+	// Multiply the raw integer values, then shift right by FRACTIONAL_BITS
+	// to get the result in the correct fixed-point format.
+	// Use long long for intermediate product to prevent overflow
+	result.setRawBits((static_cast<long long>(this->fixedPoint) * other.fixedPoint) >> FRACTIONAL_BITS);
+	return result;
+}
+
+Fixed Fixed::operator/(const Fixed &other) const {
+	Fixed result;
+	// To divide, we multiply the numerator by 2^FRACTIONAL_BITS
+	// before dividing by the denominator to maintain precision.
+	// Use long long for intermediate product to prevent overflow
+	if (other.fixedPoint == 0) {
+		std::cerr << "Error: Division by zero!" << std::endl;
+		// Depending on requirements, could throw an exception or return a specific value
+		// For now, returning a default constructed Fixed object.
+		return Fixed();
+	}
+	result.setRawBits((static_cast<long long>(this->fixedPoint) << FRACTIONAL_BITS) / other.fixedPoint);
+	return result;
+}
+
+// Increment/Decrement operators
+Fixed &Fixed::operator++() {
+	this->fixedPoint++;
+	return *this;
+}
+
+Fixed Fixed::operator++(int) {
+	Fixed temp = *this; // Save current state
+	this->fixedPoint++; // Increment
+	return temp;        // Return saved state
+}
+
+Fixed &Fixed::operator--() {
+	this->fixedPoint--;
+	return *this;
+}
+
+Fixed Fixed::operator--(int) {
+	Fixed temp = *this; // Save current state
+	this->fixedPoint--; // Decrement
+	return temp;        // Return saved state
+}
+
+// Static member functions
+Fixed &Fixed::min(Fixed &a, Fixed &b) {
+	return (a < b) ? a : b;
+}
+
+const Fixed &Fixed::min(const Fixed &a, const Fixed &b) {
+	return (a < b) ? a : b;
+}
+
+Fixed &Fixed::max(Fixed &a, Fixed &b) {
+	return (a > b) ? a : b;
+}
+
+const Fixed &Fixed::max(const Fixed &a, const Fixed &b) {
+	return (a > b) ? a : b;
+}
+
 
 std::ostream &operator<<(std::ostream &os, const Fixed &fixed)
 {

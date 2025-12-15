@@ -16,8 +16,8 @@ class ClapTrap
 	private:
 
 		protected:
-		/* Name, which is passed as a parameter to the constructor */
-		std::string _Name;
+		/*! @brief @param Name passed as a parameter to the constructor */
+		std::string _Name; // <-- The "Base" Name
 		/*! @brief Hit points (10), Representing the health of the ClapTrap */
 		unsigned int _HitPoint;
 		/* Energy points (10) */

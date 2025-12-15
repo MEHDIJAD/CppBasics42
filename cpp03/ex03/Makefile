@@ -1,7 +1,7 @@
 # Source files are now in the src directory
 SRC_DIR = src
 # List of source file names (excluding main.cpp)
-SRC_FILES = ClapTrap.cpp ScavTrap.cpp FragTrap.cpp
+SRC_FILES = ClapTrap.cpp ScavTrap.cpp FragTrap.cpp DiamondTrap.cpp
 # Full paths to source files in SRC_DIR
 SRC = $(addprefix $(SRC_DIR)/, $(SRC_FILES))
 

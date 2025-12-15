@@ -6,7 +6,7 @@
 // ANSI Color Codes
 #define CYAN    "\033[36m"
 
-class FragTrap : public ClapTrap
+class FragTrap : virtual public ClapTrap
 {
 	public:
 		// Constructors and Destructor

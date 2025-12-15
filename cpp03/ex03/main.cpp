@@ -1,5 +1,6 @@
 #include "incl/ScavTrap.hpp"
 #include "incl/FragTrap.hpp"
+#include "incl/DiamondTrap.hpp"
 #include <iostream>
 
 int main(void)
@@ -15,5 +16,8 @@ int main(void)
 	f.highFivesGuys();
 
 	std::cout << std::endl;
+
+	DiamondTrap d("MARK-98");
+	d.whoAmI();
 	return (0);
 }

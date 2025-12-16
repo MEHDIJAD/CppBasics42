@@ -27,6 +27,7 @@ FragTrap(Name), ScavTrap(Name)
 	std::cout << "DiamondTrap constructed" << std::endl;
 }
 
+/* Destructor */
 DiamondTrap::~DiamondTrap( void )
 {
 	std::cout << "Destructor called" << std::endl;

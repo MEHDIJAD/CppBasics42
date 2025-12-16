@@ -15,12 +15,17 @@ int main(void)
 	std::cout << "|- ScavTrap TEST -|" << std::endl;
 	ScavTrap p("MAEK-2");
 	p.attack("Cat-1");
+	p.takeDamage(8);
+	p.beRepaired(11);
+	p.guardGate();
 
 	std::cout << std::endl;
 
 	std::cout << "|- FragTrap TEST -|" << std::endl;
 	FragTrap f("FR4G-TP");
 	f.attack("arget-2");
+	f.takeDamage(8);
+	f.beRepaired(11);
 	f.highFivesGuys();
 	
 	return (0);

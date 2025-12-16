@@ -15,7 +15,6 @@ class ClapTrap
 
 	/*! @brief 
 	The "Protected" Keyword
-	In your ClapTrap.hpp, we moved attributes from private to protected.
 	Private: Only ClapTrap can touch these variables. If ScavTrap tries to change _HitPoint, the compiler shouts.
 	Protected: ClapTrap shares these variables only with its children (like ScavTrap).
 	Public: Everyone (including main.cpp) can touch them (Bad encapsulation!).

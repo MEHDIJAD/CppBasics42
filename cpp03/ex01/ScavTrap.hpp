@@ -10,7 +10,7 @@
 class ScavTrap : public ClapTrap
 {
 	private:
-
+	
 	public:
 		/*! @brief Default Constructor */
 		ScavTrap( void );
@@ -23,9 +23,7 @@ class ScavTrap : public ClapTrap
 		/*! @brief Destructor */
 		~ScavTrap( void );
 		
-		void attack(const std::string& target);
-		void takeDamage(unsigned int amount);
-		void beRepaired(unsigned int amount);
+		void attack(const std::string& target); // REQ
 		
 		/*! @brief display a message indicating that ScavTrap is now in Gate keeper mode.*/
 		void guardGate( void );

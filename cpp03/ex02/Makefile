@@ -42,7 +42,6 @@ fclean: clean
 	@rm -f $(NAME)
 	@rm -rf $(OBJ_DIR) # Also remove the object directory
 
-
 re: fclean all
 
 run: all

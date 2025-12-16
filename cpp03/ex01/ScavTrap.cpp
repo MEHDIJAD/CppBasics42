@@ -3,7 +3,7 @@
 #include "ClapTrap.hpp"
 
 /*! @brief Default Constructor 
-	if we do not add the Parent Constructor, the Derived class call the default Constructor of Parent by default 
+	if we do not add the Parent Constructor, the Derived class call the default Constructor of Parent by default
 */
 ScavTrap::ScavTrap( void ) : ClapTrap()
 {

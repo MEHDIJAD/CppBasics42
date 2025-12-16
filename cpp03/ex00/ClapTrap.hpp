@@ -14,7 +14,7 @@
 class ClapTrap
 {
 	private:
-		/* Name, which is passed as a parameter to the constructor */
+		/*! @brief @param Name passed as a parameter to the constructor */
 		std::string _Name;
 		/*! @brief Hit points (10), Representing the health of the ClapTrap */
 		unsigned int _HitPoint;
@@ -28,7 +28,7 @@ class ClapTrap
 		ClapTrap( void );
 		/* Parametrize Constructor (REQ) */
 		ClapTrap(std::string Name);
-		/* Copy Costructor */
+		/* Copy Constructor */
 		ClapTrap(const ClapTrap &other);
 		/* Assigment Operator */
 		ClapTrap &operator=(const ClapTrap &other);

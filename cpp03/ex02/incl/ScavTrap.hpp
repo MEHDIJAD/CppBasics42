@@ -16,6 +16,10 @@ class ScavTrap : public ClapTrap
 		ScavTrap( void );
 		/*! @brief Paramerize Costructor that take @param Name */
 		ScavTrap(std::string Name);
+		/* Copy Constructor */
+		ScavTrap(const ScavTrap &other);
+		/* Assigment Operator */
+		ScavTrap &operator=(const ScavTrap &other);
 		/*! @brief Destructor */
 		~ScavTrap( void );
 		/*! @brief display a message indicating that ScavTrap is now in Gate keeper mode.*/

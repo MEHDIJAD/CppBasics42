@@ -15,8 +15,15 @@ class ClapTrap
 {
 	private:
 
-		protected:
-		/* Name, which is passed as a parameter to the constructor */
+	/*! @brief 
+	The "Protected" Keyword
+	In your ClapTrap.hpp, we moved attributes from private to protected.
+	Private: Only ClapTrap can touch these variables. If ScavTrap tries to change _HitPoint, the compiler shouts.
+	Protected: ClapTrap shares these variables only with its children (like ScavTrap).
+	Public: Everyone (including main.cpp) can touch them (Bad encapsulation!).
+	*/
+	protected:
+		/*! @brief @param Name passed as a parameter to the constructor */
 		std::string _Name;
 		/*! @brief Hit points (10), Representing the health of the ClapTrap */
 		unsigned int _HitPoint;

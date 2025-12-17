@@ -3,9 +3,6 @@
 
 // Default Constructor
 FragTrap::FragTrap( void ) : ClapTrap() {
-	this->_HitPoint = 100;
-	this->_EnergyPoint = 100;
-	this->_AttackDamage = 30;
 	std::cout << CYAN << "FragTrap" << RESET << " Default Constructor called" << std::endl;
 }
 
@@ -31,14 +28,14 @@ FragTrap::~FragTrap( void ) {
 FragTrap &FragTrap::operator=( const FragTrap &other ) {
 	ClapTrap::operator=(other);
 	std::cout << CYAN << "FragTrap" << RESET << " Assignment Operator called" << std::endl;
-	return *this;
+	return (*this);
 }
 
 // Attack function
 void FragTrap::attack( const std::string& target ) {
 	if (this->_HitPoint == 0 || this->_EnergyPoint == 0)
 	{
-		std::cout << RED << "FragTrap" << RESET << " " << this->getName()
+		std::cout << CYAN << "FragTrap" << RESET << " " << this->getName()
 		<< RED << " can't attack, not enough hit points or energy points left!"
 		<< RESET << std::endl;
 		return;

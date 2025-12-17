@@ -55,7 +55,7 @@ void ScavTrap::attack(const std::string &target)
 {
 	if (this->_HitPoint == 0 || this->_EnergyPoint == 0)
 	{
-		std::cout << RED << "ScavTrap" << RESET << " " << this->getName()
+		std::cout << YELLOW << "ScavTrap" << RESET << " " << this->getName()
 		<< RED << " can't attack, not enough hit points or energy points left!"
 		<< RESET << std::endl;
 		return;

@@ -78,7 +78,7 @@ void ClapTrap::attack(const std::string &target)
 {
 	if (this->_HitPoint == 0 || this->_EnergyPoint == 0)
 	{
-		std::cout << RED << "ClapTrap" << RESET << " " << this->getName()
+		std::cout << BLUE << "ClapTrap" << RESET << " " << this->getName()
 		<< RED << " can't attack, not enough hit points or energy points left!"
 		<< RESET << std::endl;
 		return;
@@ -98,7 +98,7 @@ void ClapTrap::takeDamage(unsigned int amount)
 {
 	if (this->_HitPoint == 0)
 	{
-		std::cout << RED << "ClapTrap" << RESET << " "
+		std::cout << BLUE << "ClapTrap" << RESET << " "
 		<< this->getName() << RED << " is already knocked out!" << RESET << std::endl;
 		return;
 	}
@@ -106,7 +106,7 @@ void ClapTrap::takeDamage(unsigned int amount)
 		this->_HitPoint = 0;
 	else
 		this->_HitPoint -= amount;
-	std::cout << RED << "ClapTrap" << RESET << " "
+	std::cout << BLUE << "ClapTrap" << RESET << " "
 	<< this->getName() << " takes "
 	<< amount << " points of damage! Current HP: "
 	<< this->_HitPoint << std::endl;
@@ -119,13 +119,13 @@ void ClapTrap::beRepaired(unsigned int amount)
 {
 	if (this->_HitPoint == 0 || this->_EnergyPoint == 0)
 	{
-		std::cout << RED << "ClapTrap" << RESET << " "
+		std::cout << BLUE << "ClapTrap" << RESET << " "
 		<< this->getName() << RED << " can't be repaired, not enough hit points or energy points left!" << RESET << std::endl;
 		return;
 	}
 	this->_EnergyPoint--;
 	this->_HitPoint += amount;
-	std::cout << GREEN << "ClapTrap" << RESET << " "
+	std::cout << BLUE << "ClapTrap" << RESET << " "
 	<< this->getName() << " repairs itself for "
 	<< amount << " points! Current HP: "
 	<< this->_HitPoint << std::endl;

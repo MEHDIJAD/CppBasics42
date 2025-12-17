@@ -10,7 +10,7 @@ OTHER_OBJ = $(addprefix $(OBJ_DIR)/, $(SRC_FILES:.cpp=.o))
 
 OBJ = $(MAIN_OBJ) $(OTHER_OBJ)
 
-NAME = program
+NAME = DiamondTrap
 
 COMPILER = c++
 FLAGS = -Wall -Wextra -Werror  -Wshadow -g -Iincl

@@ -55,7 +55,7 @@ void ScavTrap::attack(const std::string &target)
 {
 	if (this->_HitPoint == 0 || this->_EnergyPoint == 0)
 	{
-		std::cout << RED << "ScavTrap" << RESET << " " << this->getName()
+		std::cout << YELLOW << "ScavTrap" << RESET << " " << this->getName()
 		<< RED << " can't attack, not enough hit points or energy points left!"
 		<< RESET << std::endl;
 		return;
@@ -66,46 +66,7 @@ void ScavTrap::attack(const std::string &target)
 	<< ", causing " <<  this->_AttackDamage << " points of damage!"
 	<< std::endl;
 }
-/**
- * @brief Makes the ScavTrap take damage.
- * @param amount The amount of damage to take.
- */
-void ScavTrap::takeDamage(unsigned int amount)
-{
-	if (this->_HitPoint == 0)
-	{
-		std::cout << RED << "ScavTrap" << RESET << " "
-		<< this->getName() << RED << " is already knocked out!" << RESET << std::endl;
-		return;
-	}
-	if (this->_HitPoint < amount)
-		this->_HitPoint = 0;
-	else
-		this->_HitPoint -= amount;
-	std::cout << RED << "ScavTrap" << RESET << " "
-	<< this->getName() << " takes "
-	<< amount << " points of damage! Current HP: "
-	<< this->_HitPoint << std::endl;
-}
-/**
- * @brief Makes the ScavTrap repair itself.
- * @param amount The amount of hit points to restore.
- */
-void ScavTrap::beRepaired(unsigned int amount)
-{
-	if (this->_HitPoint == 0 || this->_EnergyPoint == 0)
-	{
-		std::cout << RED << "ScavTrap" << RESET << " "
-		<< this->getName() << RED << " can't be repaired, not enough hit points or energy points left!" << RESET << std::endl;
-		return;
-	}
-	this->_EnergyPoint--;
-	this->_HitPoint += amount;
-	std::cout << GREEN << "ScavTrap" << RESET << " "
-	<< this->getName() << " repairs itself for "
-	<< amount << " points! Current HP: "
-	<< this->_HitPoint << std::endl;
-}
+
 void ScavTrap::guardGate( void )
 {
 	std::cout << YELLOW << "ScavTrap" << RESET << " is now in Gate Keeper mode." << std::endl;

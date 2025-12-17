@@ -5,6 +5,8 @@
 #include "FragTrap.hpp"
 #include "ScavTrap.hpp"
 
+#define GRAY  "\033[90m"
+
 /* Multy inheritance */
 class DiamondTrap : public FragTrap , public ScavTrap
 {

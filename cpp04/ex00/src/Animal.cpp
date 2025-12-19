@@ -1,7 +1,7 @@
-#include "Animal.hpp"
+#include "../incl/Animal.hpp"
 
 /* Default Costructor */
-Animal::Animal(void)
+Animal::Animal(void) : type("")
 {
     std::cout << YELLOW << "Animal " << RESET << "Constructor called"
               << std::endl;

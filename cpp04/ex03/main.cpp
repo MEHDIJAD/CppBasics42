@@ -3,9 +3,8 @@
 #include "incl/Cure.hpp"
 #include "incl/Character.hpp"
 
-int main(void)
-{
-    Ice i;
+void Test01(void ){
+	Ice i;
     std::cout << std::endl;
     Cure j;
     std::cout << std::endl;
@@ -17,9 +16,13 @@ int main(void)
     std::cout  << clone->getType() << std::endl;
     delete clone;
 
-    Character c("Protagnes");
+}
 
+int main(void)
+{
 
+	// Test01();
+    Character *me = new Character("The Protagonist");
 
     return 0;
 }

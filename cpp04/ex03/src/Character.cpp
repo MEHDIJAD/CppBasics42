@@ -12,7 +12,7 @@ Character::Character(std::string const &name) : Name(name)
 
 Character::Character(const Character &other)
 {
-    for (size_t i = 0; i < 3; i++){
+    for (size_t i = 0; i < 4; i++){
         if (other.inventory[i] != NULL){
             this->inventory[i] = other.inventory[i]->clone();
         }
@@ -51,12 +51,12 @@ Character &Character::operator=(const Character &other)
 
 Character::~Character( void )
 {
-    for (size_t i = 0; i < 3; i++){
-        if (this->inventory[i] != NULL){
-            delete this->inventory[i];
-            this->inventory[i] = NULL;
-        }
-    }
+    // for (size_t i = 0; i < 4; i++){
+    //     if (this->inventory[i] != NULL){
+    //         delete this->inventory[i];
+    //         this->inventory[i] = NULL;
+    //     }
+    // }
     std::cout << YELLOW << "Character " << RESET << this->Name
     << " Destructor called" << std::endl;
 }

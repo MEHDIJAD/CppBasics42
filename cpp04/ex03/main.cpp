@@ -21,8 +21,16 @@ void Test01(void ){
 int main(void)
 {
 
-	// Test01();
+	// Test01()
+	Ice e;
     Character *me = new Character("The Protagonist");
+
+	AMateria *clone = e.clone();
+	me->equip(clone); /* Each time we creat a clone = diffrent pointer */
+	me->unequip(0);
+	
+	delete clone;
+	delete me;
 
     return 0;
 }

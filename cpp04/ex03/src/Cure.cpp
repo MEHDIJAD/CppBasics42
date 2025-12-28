@@ -1,4 +1,5 @@
 #include "../incl/Cure.hpp"
+#include "../incl/ICharacter.hpp"
 
 Cure::Cure( void ) : AMateria("cure"){
     std::cout << GREEN << this->type << RESET
@@ -24,4 +25,11 @@ Cure::~Cure( void ){
 
 AMateria *Cure::clone() const {
     return new Cure(*this);
+}
+
+void Cure::use(ICharacter &target)
+{
+	std::cout << GREEN << "* heals "
+	<< RESET << target.getName() << GREEN << "’s wounds *"
+	<< std::endl;
 }

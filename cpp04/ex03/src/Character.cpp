@@ -93,3 +93,10 @@ void Character::unequip(int idx){
     }
 	
 }
+
+void Character::use(int indx, ICharacter &target)
+{
+	if (indx >= 0 && indx < 4 && this->inventory[indx] != NULL){
+		this->inventory[indx]->use(target);
+	}
+}

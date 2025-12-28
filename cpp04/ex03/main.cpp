@@ -23,14 +23,26 @@ int main(void)
 
 	// Test01()
 	Ice e;
+	Cure c;
+	
     Character *me = new Character("The Protagonist");
 
-	AMateria *clone = e.clone();
-	me->equip(clone); /* Each time we creat a clone = diffrent pointer */
+	Character *bob = new Character("Bob");
+
+	// Create the pointer and SAVE it in a variable
+	AMateria *ice = e.clone();
+	AMateria *cure = c.clone();
+	me->equip(ice); /* Each time we creat a clone = diffrent pointer */
+	me->equip(cure);
+	me->use(0, *bob);
+	me->use(1, *bob);
 	me->unequip(0);
+	delete ice;
+
 	
-	delete clone;
+	// delete cure;
 	delete me;
+	delete bob;
 
     return 0;
 }

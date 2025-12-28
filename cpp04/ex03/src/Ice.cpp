@@ -1,4 +1,5 @@
 #include "../incl/Ice.hpp"
+#include "../incl/ICharacter.hpp"
 
 Ice::Ice( void ) : AMateria("ice"){
     std::cout << BLUE << this->type << RESET
@@ -24,4 +25,11 @@ Ice::~Ice( void ){
 
 AMateria *Ice::clone() const {
     return new Ice(*this);
+}
+
+void Ice::use(ICharacter &target)
+{
+	std::cout  << BLUE << "* shoots an ice bolt at "
+	<< RESET << target.getName()  << BLUE << " *"
+	<< std::endl;
 }

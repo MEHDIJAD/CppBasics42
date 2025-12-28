@@ -32,8 +32,8 @@ AMateria::~AMateria ( void ){
     << " Destructor called" << std::endl;   
 }
 
-// void AMateria::use(ICharacter &target){
-
-// }
+void AMateria::use(ICharacter &target){
+	(void)target;
+}
 
 

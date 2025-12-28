@@ -81,7 +81,13 @@ void Character::equip(AMateria *m)
 		}
 	}
 	std::cout << "Inventory is full. Could not equip "
-	<< m->getType() << std::endl;	
+	<< m->getType() << std::endl;
+	delete m;
+	/*! @brief We need delete m in equip because if the inventory is full, 
+	the AMateria* m (which was dynamically allocated with new) cannot be stored. 
+	If it's not deleted, the pointer to that memory is lost, resulting in a memory leak.
+
+	*/
 }
 
 void Character::unequip(int idx){

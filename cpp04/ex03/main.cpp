@@ -2,47 +2,32 @@
 #include "incl/Ice.hpp"
 #include "incl/Cure.hpp"
 #include "incl/Character.hpp"
+#include "incl/IMateriaSource.hpp"
+#include "incl/MateriaSource.hpp"
 
-void Test01(void ){
-	Ice i;
-    std::cout << std::endl;
-    Cure j;
-    std::cout << std::endl;
-    
-    AMateria *clone = i.clone(); 
-    // clone return a pointer to AMateria, 
-    // We NEED to catch it in a Var and delet it  after finish
-
-    std::cout  << clone->getType() << std::endl;
-    delete clone;
-
-}
-
-int main(void)
+int main()
 {
-
-	// Test01()
-	Ice e;
-	Cure c;
+	IMateriaSource* src = new MateriaSource();
+	src->learnMateria(new Ice());
+	src->learnMateria(new Cure());
 	
-    Character *me = new Character("The Protagonist");
-
-	Character *bob = new Character("Bob");
-
-	// Create the pointer and SAVE it in a variable
-	AMateria *ice = e.clone();
-	AMateria *cure = c.clone();
-	me->equip(ice); /* Each time we creat a clone = diffrent pointer */
-	me->equip(cure);
+	ICharacter* me = new Character("me");
+	
+	AMateria* tmp;
+	tmp = src->createMateria("ice");
+	me->equip(tmp);
+	
+	tmp = src->createMateria("cure");
+	me->equip(tmp);
+	
+	ICharacter* bob = new Character("bob");
+	
 	me->use(0, *bob);
 	me->use(1, *bob);
-	me->unequip(0);
-	delete ice;
-
 	
-	// delete cure;
-	delete me;
 	delete bob;
-
-    return 0;
+	delete me;
+	delete src;
+	
+	return 0;
 }

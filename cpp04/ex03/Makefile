@@ -1,9 +1,9 @@
 SRC_DIR = src
-SRC_FILES = AMateria.cpp Ice.cpp Cure.cpp ICharacter.cpp Character.cpp
+SRC_FILES = AMateria.cpp Ice.cpp Cure.cpp ICharacter.cpp Character.cpp MateriaSource.cpp
 SRC = $(addprefix $(SRC_DIR)/, $(SRC_FILES))
 
 INCL_DIR = incl
-HEADER_FILES = AMateria.hpp Ice.hpp Cure.hpp ICharacter.hpp Character.hpp
+HEADER_FILES = AMateria.hpp Ice.hpp Cure.hpp ICharacter.hpp Character.hpp MateriaSource.hpp IMateriaSource.hpp
 HEADER = $(addprefix $(INCL_DIR)/, $(HEADER_FILES))
 
 MAIN_SRC = main.cpp

@@ -4,7 +4,7 @@
 /**
  * @brief Default constructor for Dog.
  */
-Dog::Dog( void ) : Animal(){
+Dog::Dog( void ) : attr(NULL) {
 	this->type = "Dog";
 	std::cout <<  BLUE <<  this->type << RESET << " Constructor called" << std::endl; 
 	this->attr = new (Brain); /* Allocates memory */
@@ -33,13 +33,11 @@ Dog &Dog::operator=(const Dog &other){
 	std::cout <<  BLUE <<  this->type << RESET << " Assigment Operator called ⮞ Deep Copy created✔️" << std::endl; 
 	if(this != &other){
 		Animal::operator=(other);
-		if (this->attr != NULL){
-			// Clean up the OLD brain (Crucial!)
-			delete this->attr;
-		}
-		// Create a NEW brain (Deep Copy)
-		// This calls the Brain Copy Constructor
-		this->attr = new Brain(*other.attr);
+		delete this->attr;
+		if(other.attr)
+			this->attr = new Brain(*other.attr); /* Deep Copy */
+		else
+			this->attr = NULL;
 	}
 	return (*this);
 }
@@ -61,9 +59,9 @@ void Dog::makeSound( void ) const
 }
 
 void Dog::setIdea(int i, std::string idea) {
-    this->attr->setIdea(i, idea); // Assumes you added setIdea to Brain
+    this->attr->setIdea(i, idea);
 }
 
 std::string Dog::getIdea(int i) const {
-    return this->attr->getIdea(i); // Assumes you added getIdea to Brain
+    return this->attr->getIdea(i);
 }

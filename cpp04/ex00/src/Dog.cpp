@@ -4,7 +4,7 @@
 /**
  * @brief Default constructor for Dog.
  */
-Dog::Dog( void ) : Animal(){
+Dog::Dog( void ) {
 	this->type = "Dog";
 	std::cout <<  BLUE <<  this->type << RESET << " Constructor called" << std::endl; 
 }

@@ -3,7 +3,7 @@
 /**
  * @brief Default constructor for Cat.
  */
-Cat::Cat( void ) : Animal() {
+Cat::Cat( void ) /*: Animal() is hidden but still happens! */ {
 
 	this->type = "Cat";
 	std::cout <<  GREEN <<  this->type << RESET << " Constructor called" << std::endl; 

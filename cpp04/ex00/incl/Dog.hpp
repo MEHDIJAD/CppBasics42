@@ -20,7 +20,7 @@ class Dog : public Animal
 	/* Destructor */
 		~Dog();
 	/* Overriding */
-	void makeSound( void ) const ;
+	void makeSound( void ) const;
 };
 
 #endif

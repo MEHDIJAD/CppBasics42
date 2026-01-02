@@ -3,7 +3,7 @@
 /**
  * @brief Default constructor for Cat.
  */
-Cat::Cat( void ) : Animal() {
+Cat::Cat( void ) : Animal(), attr(NULL) {
 	this->type = "Cat";
 	std::cout <<  GREEN <<  this->type << RESET << " Constructor called" << std::endl; 
 	this->attr = new Brain();
@@ -14,8 +14,8 @@ Cat::Cat( void ) : Animal() {
  * @param other The other Cat object to copy.
  */
 Cat::Cat(const Cat &other) : Animal(other){
-	this->attr = new Brain(*other.attr);
 	std::cout <<  GREEN <<  this->type << RESET << " Deep Copy created✔️" << std::endl; 
+	this->attr = new Brain(*other.attr);
 }
 
 /**
@@ -26,10 +26,11 @@ Cat::Cat(const Cat &other) : Animal(other){
 Cat &Cat::operator=(const Cat &other){
 	if(this != &other){
 		Animal::operator=(other);
-		if (this->attr != NULL){
-			delete this->attr;
-		}
-		this->attr = new Brain(*other.attr);
+		delete this->attr;
+		if(other.attr)
+			this->attr = new Brain(*other.attr);
+		else
+			this->attr = NULL;
 	}
 	return (*this);
 }
@@ -38,8 +39,8 @@ Cat &Cat::operator=(const Cat &other){
  * @brief Destructor for Cat.
  */
 Cat::~Cat ( void ){
-	delete this->attr;
 	std::cout <<  GREEN <<  "Cat " << RESET << "Destructor called" << std::endl;	
+	delete this->attr;
 }
 
 /**

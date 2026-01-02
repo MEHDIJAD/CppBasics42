@@ -7,7 +7,7 @@
 #define GREEN   "\033[32m"
 #define RESET   "\033[0m"
 
-void Test1(void)
+void SubjectTest(void)
 {
 	// =========================================================================
     // TEST 1: SUBJECT TESTS (Basic Polymorphism)
@@ -17,12 +17,12 @@ void Test1(void)
 	const Animal* j = new Dog();
 	const Animal* i = new Cat();
 
-	delete j;//should not create a leak
+	delete j;
 	delete i;
 	std::cout << std::endl;
 }
 
-void Test2(void)
+void SubjectReqTest(void)
 {
 	// ========================================================================
     // TEST 2: The Subject Requirement (Array of Animals)
@@ -47,7 +47,7 @@ void Test2(void)
 	std::cout << std::endl;
 }
 
-void Test3(void)
+void WrongAnimalTest(void)
 {
     // ========================================================================
     // TEST 3: Deep Copy Proof (Copy Constructor)
@@ -55,18 +55,16 @@ void Test3(void)
     std::cout << "\n" << BLUE << "=== TEST 3: DEEP COPY (CONSTRUCTOR) ===" << RESET << std::endl;
 
     Dog *original = new Dog();
-    original->setIdea(0, "I want to chase the ball!"); // 1. Set specific idea
+    original->setIdea(0, "I want to chase the ball!");
     
     std::cout << BLUE << "Original Idea: " << original->getIdea(0) << RESET << std::endl;
     
-    Dog *copy = new Dog(*original); // 2. Create copy
+    Dog *copy = new Dog(*original);
     std::cout << GRAY << "Copy created.\n" << RESET;
 
-    // 3. CHANGE Original's idea
     original->setIdea(0, "Actually, I want to sleep...");
     std::cout << BLUE << "Original Idea Changed to: " << original->getIdea(0) << RESET << std::endl;
 
-    // 4. VERIFY Copy (Should remain "chase the ball")
     std::cout << GREEN << "Copy's Idea (Should be 'chase the ball'): " << copy->getIdea(0) << RESET << std::endl;
 
     if (copy->getIdea(0) != original->getIdea(0))
@@ -78,7 +76,7 @@ void Test3(void)
     delete copy; 
 }
 
-void Test4(void)
+void DirObjPointerTest(void)
 {
     // ========================================================================
     // TEST 4: Assignment Operator (Brain Transplant)
@@ -92,9 +90,7 @@ void Test4(void)
     dogB.setIdea(0, "Empty head");
 
     std::cout << BLUE << "\nAssigning B = A...\n\n" << RESET;
-    dogB = dogA; // Assignment happens here
-
-    // Change A again
+    dogB = dogA;
     dogA.setIdea(0, "Full now");
 
     // Check B
@@ -108,9 +104,6 @@ void TestAbstract(void)
 
     // -------------------------------------------------------
     // [Manual Test]
-    // Uncomment the line below. 
-    // If your Animal class is properly Abstract, the compiler 
-    // MUST throw an error like: "cannot allocate an object of abstract type 'Animal'"
     // -------------------------------------------------------
     
     // Animal* test = new Animal(); // <--- UNCOMMENT TO CHECK ERROR
@@ -140,10 +133,10 @@ void TestAbstract(void)
 
 int main(void)
 {
-	Test1();
-	Test2();
-	Test3();
-	Test4();
+	SubjectTest();
+	SubjectReqTest();
+	WrongAnimalTest();
+	DirObjPointerTest();
 	TestAbstract();
 
 	return 0;

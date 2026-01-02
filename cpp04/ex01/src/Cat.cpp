@@ -3,7 +3,7 @@
 /**
  * @brief Default constructor for Cat.
  */
-Cat::Cat( void ) : Animal() {
+Cat::Cat( void ) : attr(NULL) {
 	this->type = "Cat";
 	std::cout <<  GREEN <<  this->type << RESET << " Constructor called" << std::endl; 
 	this->attr = new Brain();
@@ -26,10 +26,11 @@ Cat::Cat(const Cat &other) : Animal(other){
 Cat &Cat::operator=(const Cat &other){
 	if(this != &other){
 		Animal::operator=(other);
-		if (this->attr != NULL){
-			delete this->attr;
-		}
-		this->attr = new Brain(*other.attr);
+		delete this->attr;
+		if(other.attr)
+			this->attr = new Brain(*other.attr);
+		else
+			this->attr = NULL;
 	}
 	return (*this);
 }

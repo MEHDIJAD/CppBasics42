@@ -52,7 +52,7 @@ MateriaSource	&MateriaSource::operator=(const MateriaSource &other)
 		for (int i = 0; i < 4; i++) 
 		{
 			if (other.learnInventory[i] != NULL) {
-				// Create a NEW copy (clone), don't just copy the pointer!
+				// Create a NEW copy (clone)
 				this->learnInventory[i] = other.learnInventory[i]->clone();
 			} 
 			else {
@@ -72,31 +72,39 @@ MateriaSource::~MateriaSource( void )
 	<< " Destructor called" << std::endl;
 
 	for (size_t i = 0; i < 4; i++) {
-        if (this->learnInventory[i] != NULL) {
-            delete this->learnInventory[i];
-            this->learnInventory[i] = NULL;
-        }
-    }
+		if (this->learnInventory[i] != NULL) {
+			delete this->learnInventory[i];
+			this->learnInventory[i] = NULL;
+		}
+	}
 }
 
 /**
  * @brief Learns a materia.
  * @param lsrc The materia to learn.
  */
-void MateriaSource::learnMateria(AMateria *lsrc)
+void MateriaSource::learnMateria(AMateria *m)
 {
-	if (lsrc == NULL){
+	if (!m){
 		return;
 	}
-	for (size_t i = 0; i < 4; i++)
-	{
-		if (this->learnInventory[i] == NULL) {
-			this->learnInventory[i] = lsrc;
+
+	for (int i = 0; i < 4; i++) {
+		if (this->learnInventory[i] == m) {
+			std::cerr  << RED << "Error: MateriaSource already knows this specific template!" << std::endl;
 			return;
 		}
 	}
-	std::cerr << RED << "Did not find empty SLOT !" << std::endl;
-	delete lsrc; 
+
+	for (size_t i = 0; i < 4; i++)
+	{
+		if (this->learnInventory[i] == NULL) {
+			this->learnInventory[i] = m;
+			return;
+		}
+	}
+	std::cerr << "Source Full: Deleting input" << std::endl;
+	delete m; 
 	/*!  @brief learnMateria takes ownership. 
 	if We reject the item, it might never get deleted (memory leak).
 	So we Clean Here.

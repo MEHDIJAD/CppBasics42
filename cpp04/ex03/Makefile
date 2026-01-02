@@ -1,5 +1,5 @@
 SRC_DIR = src
-SRC_FILES = AMateria.cpp Ice.cpp Cure.cpp ICharacter.cpp Character.cpp MateriaSource.cpp
+SRC_FILES = AMateria.cpp Ice.cpp Cure.cpp Character.cpp MateriaSource.cpp
 SRC = $(addprefix $(SRC_DIR)/, $(SRC_FILES))
 
 INCL_DIR = incl
@@ -14,7 +14,7 @@ OTHER_OBJ = $(addprefix $(OBJ_DIR)/, $(SRC_FILES:.cpp=.o))
 
 OBJ = $(MAIN_OBJ) $(OTHER_OBJ)
 
-NAME = Intarface
+NAME = Interface
 
 COMPILER = c++
 FLAGS = -Wall -Wextra -Werror -I$(INCL_DIR)

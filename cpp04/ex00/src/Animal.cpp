@@ -2,11 +2,13 @@
 
 /**
  * @brief Default constructor for Animal.
+ * @note (from subject):
+ * the Animal class can be left empty or set to the value of your choice.
  */
 Animal::Animal(void) : type("")
 {
-    std::cout << YELLOW << "Animal " << RESET << "Constructor called"
-    << std::endl;
+	std::cout << YELLOW << "Animal " << RESET << "Constructor called"
+	<< std::endl;
 }
 
 /**
@@ -15,8 +17,8 @@ Animal::Animal(void) : type("")
  */
 Animal::Animal(std::string &type) : type(type)
 {
-    std::cout << YELLOW << "Animal " << this->type << RESET
-    << " Constructor called" << std::endl;
+	std::cout << YELLOW << "Animal " << this->type << RESET
+	<< " Constructor called" << std::endl;
 }
 
 /**
@@ -25,9 +27,9 @@ Animal::Animal(std::string &type) : type(type)
  */
 Animal::Animal(const Animal &other)
 {
-    this->type = other.getType();
-    std::cout << YELLOW << "Animal " << this->type << RESET
-    << " Copy Constructor called" << std::endl;
+	this->type = other.getType();
+	std::cout << YELLOW << "Animal " << this->type << RESET
+	<< " Copy Constructor called" << std::endl;
 }
 
 /**
@@ -37,10 +39,10 @@ Animal::Animal(const Animal &other)
  */
 Animal &Animal::operator=(const Animal &other)
 {
-    if (this != &other){
-        this->type = other.getType();
-    }
-    return (*this);
+	if (this != &other){
+		this->type = other.getType();
+	}
+	return (*this);
 }
 
 /**
@@ -48,23 +50,28 @@ Animal &Animal::operator=(const Animal &other)
  */
 Animal::~Animal(void)
 {
-    std::cout << YELLOW << "Animal " << this->type << RESET
-    << " Destructor called" << std::endl;
+	std::cout << YELLOW << "Animal " << this->type << RESET
+	<< " Destructor called" << std::endl;
 }
 
 /**
  * @brief Returns the type of the animal.
  * @return The type of the animal.
  */
-std::string const &Animal::getType(void) const
-{
-    return (this->type);
+std::string const &Animal::getType(void) const {
+	return (this->type);
 }
+
+
+// void Animal::setType(std::string type){
+// 	this->type = type;
+// }
+
 
 /**
  * @brief Makes the animal sound.
  */
 void Animal::makeSound(void) const 
 {
-    std::cout << YELLOW << "Animal Say What 🧠🧠 " << std::endl;
+	std::cout << YELLOW << "Animal Say What 🧠🧠 " << std::endl;
 }

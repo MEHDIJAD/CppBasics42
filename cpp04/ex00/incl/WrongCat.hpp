@@ -18,7 +18,6 @@ class WrongCat : public WrongAnimal
 		WrongCat& operator=(const WrongCat& other);
 	/* Destructor */
 		~WrongCat( void );
-
 	/* Overriding */
 	void makeSound( void ) const ;
 };

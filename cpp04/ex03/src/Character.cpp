@@ -5,10 +5,10 @@
  */
 Character::Character( void ) : Name("Unnamed")
 {
-    for (size_t i = 0; i < 4; i++){ /*! @note empty upon construction */
-        this->inventory[i] = NULL;
-    }
-    std::cout << YELLOW << "Character Default Constructor called" << RESET << std::endl;
+	for (size_t i = 0; i < 4; i++){ /*! @note empty upon construction */
+		this->inventory[i] = NULL;
+	}
+	std::cout << YELLOW << "Character Default Constructor called" << RESET << std::endl;
 }
 
 /**
@@ -17,11 +17,11 @@ Character::Character( void ) : Name("Unnamed")
  */
 Character::Character(std::string const &name) : Name(name)
 {
-    for (size_t i = 0; i < 4; i++){
-        this->inventory[i] = NULL; /*! @note empty upon construction */
-    }
-    std::cout << YELLOW << "Character " << RESET << this->Name
-    << " Constructor called" << std::endl;
+	for (size_t i = 0; i < 4; i++){
+		this->inventory[i] = NULL; /*! @note empty upon construction */
+	}
+	std::cout << YELLOW << "Character " << RESET << this->Name
+	<< " Constructor called" << std::endl;
 }
 
 /**
@@ -31,16 +31,17 @@ Character::Character(std::string const &name) : Name(name)
 Character::Character(const Character &other)
 {
 	this->Name = other.getName();
-    for (size_t i = 0; i < 4; i++){
-        if (other.inventory[i] != NULL){
-            this->inventory[i] = other.inventory[i]->clone();
-        }
-        else{
-            this->inventory[i] = NULL;
-        }
-    }
-    std::cout << YELLOW << "Character " << RESET << this->Name
-    << " Deep Copy Constructor called" << std::endl;
+	
+	for (size_t i = 0; i < 4; i++){
+		if (other.inventory[i] != NULL){
+			this->inventory[i] = other.inventory[i]->clone();
+		}
+		else{
+			this->inventory[i] = NULL;
+		}
+	}
+	std::cout << YELLOW << "Character " << RESET << this->Name
+	<< " Deep Copy Constructor called" << std::endl;
 }
 
 /**
@@ -50,27 +51,25 @@ Character::Character(const Character &other)
  */
 Character &Character::operator=(const Character &other)
 {
-    if (this != &other) {
-        
-        // 2. CLEAN UP: Delete currently stored clones (Just like the destructor!)
-        for (int i = 0; i < 4; i++) {
-            if (this->inventory[i] != NULL) {
-                delete this->inventory[i];
-                this->inventory[i] = NULL;
-            }
-        }
+	if (this != &other) {
+		this->Name = other.getName();
+		
+		for (int i = 0; i < 4; i++) {
+			if (this->inventory[i] != NULL) {
+				delete this->inventory[i];
+				this->inventory[i] = NULL;
+			}
+		}
 
-        // 3. DEEP COPY: Create new clones from the other object
-        for (int i = 0; i < 4; i++) {
-            if (other.inventory[i] != NULL) {
-                // Create a NEW copy (clone), don't just copy the pointer!
-                this->inventory[i] = other.inventory[i]->clone();
-            } else {
-                this->inventory[i] = NULL;
-            }
-        }
-    }
-    return *this;
+		for (int i = 0; i < 4; i++) {
+			if (other.inventory[i] != NULL) {
+				this->inventory[i] = other.inventory[i]->clone();
+			} else {
+				this->inventory[i] = NULL;
+			}
+		}
+	}
+	return *this;
 }
 
 /**
@@ -78,16 +77,16 @@ Character &Character::operator=(const Character &other)
  */
 Character::~Character( void )
 {
-    /*! @note (from subject):
-    Of course, the Materias must be deleted when a Character is destroyed.*/
-    for (size_t i = 0; i < 4; i++){
-        if (this->inventory[i] != NULL){
-            delete this->inventory[i];
-            this->inventory[i] = NULL;
-        }
-    }
-    std::cout << YELLOW << "Character " << RESET << this->Name
-    << " Destructor called" << std::endl;
+	/*! @note (from subject):
+	Of course, the Materias must be deleted when a Character is destroyed.*/
+	for (size_t i = 0; i < 4; i++){
+		if (this->inventory[i] != NULL){
+			delete this->inventory[i];
+			this->inventory[i] = NULL;
+		}
+	}
+	std::cout << YELLOW << "Character " << RESET << this->Name
+	<< " Destructor called" << std::endl;
 }
 
 /**
@@ -95,7 +94,7 @@ Character::~Character( void )
  * @return A constant reference to the name of the character.
  */
 std::string const &Character::getName() const{
-    return (this->Name);
+	return (this->Name);
 }
 
 /**
@@ -104,9 +103,18 @@ std::string const &Character::getName() const{
  */
 void Character::equip(AMateria *m)
 {
-	if (m == NULL){
+	if (!m){
 		return;
 	}
+
+	for (int i = 0; i < 4; i++)
+	{
+		if (this->inventory[i] == m){
+			std::cerr  << RED << "Error: This materia is already equipped!" << std::endl;
+			return;
+		}
+	}
+	
 	for (size_t i = 0; i < 4; i++)
 	{
 		if (this->inventory[i] == NULL){
@@ -123,11 +131,11 @@ void Character::equip(AMateria *m)
 	the AMateria* m (which was dynamically allocated with new) cannot be stored. 
 	If it's not deleted, the pointer to that memory is lost, resulting in a memory leak.
 
-    If equip rejects it and doesn't delete it, that object leaks immediately.
+	If equip rejects it and doesn't delete it, that object leaks immediately.
 
-    If you changed it to "Caller Responsibility," 
-    We would have to change the return type of equip from void to bool (to tell the caller it failed). 
-    Since the subject mandates void equip(AMateria* m), we must delete it inside,
+	If you changed it to "Caller Responsibility," 
+	We would have to change the return type of equip from void to bool (to tell the caller it failed). 
+	Since the subject mandates void equip(AMateria* m), we must delete it inside,
 	*/
 }
 
@@ -137,12 +145,12 @@ void Character::equip(AMateria *m)
  */
 void Character::unequip(int idx){
 	if (idx >= 0 && idx < 4 && this->inventory[idx] != NULL) {
-        /*! @note (From subject):
-        The unequip() member function must NOT delete the Materia!
-        */
-        this->inventory[idx] = NULL;
-        std::cout << "Unequipped slot " << idx << std::endl;
-    }
+		/*! @note (From subject):
+		The unequip() member function must NOT delete the Materia!
+		*/
+		this->inventory[idx] = NULL;
+		std::cout << "Unequipped slot " << idx << std::endl;
+	}
 	
 }
 

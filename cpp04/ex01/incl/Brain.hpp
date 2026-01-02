@@ -20,7 +20,7 @@ class Brain
 
 		/*! @note Help for testing if Copy Constructor works? (deep copy)*/
 		const std::string& getIdea(int index) const;
-        void setIdea(int index, const std::string& idea);
+		void setIdea(int index, const std::string& idea);
 };
 
 #endif

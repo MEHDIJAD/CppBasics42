@@ -4,7 +4,7 @@ This guide breaks down the concept of member function pointers, a powerful but o
 
 #### The Core Concept
 
-A regular function pointer just stores the memory address of a function. A **Member Function Pointer** is different because it points to a function that belongs to a class and needs an object to work.
+A regular function pointer just stores the memory address of a function. A **Member Function Pointer** is different because it points to a function that belongs to a **class and needs an object to work.**
 
 To call a member function, you need two things:
 1.  **The Code:** The address of the function's instructions (the pointer itself).
